@@ -19,7 +19,7 @@ This project demonstrates the development of a PWA using modern web technologies
 To install and run the project locally, follow these steps:
 
 1. Clone the repository to your local machine:
-`git clone https://github.com/your-username/pwa-project-test.git`
+`git clone https://github.com/Mohamed20a/pwa-project-test.git`
 
 2. Navigate to the project directory:
 `cd pwa-project-test`
@@ -44,5 +44,5 @@ This project is licensed under the [MIT License](LICENSE).
 ## Contact
 
 For questions or feedback, feel free to contact the project maintainer:
-- Email: your-email@example.com
-- GitHub: Your GitHub Profile
+- Email: m16ahmed17@gmail.com
+- GitHub: https://github.com/Mohamed20a
