@@ -173,11 +173,12 @@ header .header-content .header-content-inner {
 header .header-content .header-content-inner .dev{
     background: #96CB4F;
     background: linear-gradient(to right, #96CB4F 0%, #31C4DC 100%);
+    text-transform: uppercase;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 header .header-content .header-content-inner #yout-icon{
-    color: red;
+    color: white;
 }
 header .header-content .header-content-inner .home-btn{
     display: flex;
@@ -421,6 +422,9 @@ input:focus, textarea:focus {
     color: rgb(156 163 175/1);
     font-family: monospace;
 }
+.card-img-top{
+    height: 150px;
+}
 /**** PORTFOLIO ****/
 
 /**** FOOTER ****/
@@ -574,3 +578,12 @@ footer a:hover{
     }
 }
 
+.error , .offline{
+    background: #001129;
+    min-height: 100%;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+}

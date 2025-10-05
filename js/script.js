@@ -1,4 +1,3 @@
-// Scroll Up button
 let scrollBtn = document.querySelector(".scrollBtn");
 
 scrollBtn.addEventListener('click',()=>{
@@ -15,47 +14,34 @@ window.addEventListener("scroll", ()=>{
 })
 scrollUp()
 
+const installBtn = document.getElementById("install");
+let btnPrompt; 
 
+window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    installBtn.style.display = "block";
+    btnPrompt = event;
+});
 
-// Install Btn
-let InstallBtn = document.getElementById("install");
-
-// show  the install btn when the page is loaded.
-window.addEventListener("beforeinstallprompt" , (installEvent) => {
-    InstallBtn.style.display = "block";
-    deferredPrompt = installEvent;
-})
-
-// Click the "Install" button to trigger the prompt
-InstallBtn.addEventListener('click' , () => {
-    if(deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-
-            if(choiceResult.outcome === "accepted"){
-                console.log("User Accepted Installing");
-                InstallBtn.style.display = "none";
-            } else{
-                console.log("User Refused Installing");
+installBtn.addEventListener("click", () => {
+    if (btnPrompt) {
+        btnPrompt.prompt();
+        btnPrompt.userChoice.then((choice) => {
+            if (choice.outcome === "accepted") {
+                console.log("User accepted");
+                installBtn.style.display = "none";
+            } else {
+                console.log("User refused");
             }
-        })
+            btnPrompt = null; 
+        });
     }
-})
+});
 
-
-
-// Registration Services  Worker 
 if(navigator.serviceWorker){
-    navigator.serviceWorker.register('../sw.js')
+    navigator.serviceWorker.register("../sw.js")
     .then((reg) => {
-        console.log('file Is Register' , reg)
+        console.log(reg)
     })
-    .catch((err) => {
-        console.log("Error", err)
-    })
-}
-
-// Check Network, If It Offline => Show The Alert To User
-if(!navigator.onLine){
-    alert('Website Is Offline');
+    .catch((err) => console.log(err))
 }
